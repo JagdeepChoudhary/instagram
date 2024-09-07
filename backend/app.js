@@ -8,8 +8,7 @@ import cookieParser from 'cookie-parser'
 import { app, server } from './Socket/Socket.js'
 import dotenv from 'dotenv'
 import path from 'path'
-const port = 8000;
-
+const PORT = process.env.PORT || 3000;
 dotenv.config();
 const corsOptions = {
     origin: [
@@ -34,6 +33,6 @@ app.use(express.static(path.join(__dirname, "/frontend/dist")));
 app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 })
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
