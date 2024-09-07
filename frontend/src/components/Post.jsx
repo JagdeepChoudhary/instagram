@@ -214,7 +214,10 @@ const Post = ({ post, loading }) => {
             />
           )}
           <MessageCircle
-            onClick={() => getAllCommentsHandler(post._id)}
+            onClick={() => {
+              dispatch(setSelectedPost(post));
+              setOpen(true);
+            }}
             className="cursor-pointer hover:text-gray-600"
           />
           {comment.length}
